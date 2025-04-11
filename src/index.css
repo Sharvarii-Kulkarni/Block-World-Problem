@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -46,7 +45,7 @@
     
     /* Block world custom colors */
     --blockPurple: #9b87f5;
-    --blockDarkPurple: #7E69AB;
+    --blockDarkPurple: #422089;
     --blockLightPurple: #E5DEFF;
     --blockBlue: #0EA5E9;
     --blockGray: #8E9196;
@@ -94,8 +93,8 @@
     
     /* Block world custom colors in dark mode */
     --blockPurple: #a595f7;
-    --blockDarkPurple: #9b87f5;
-    --blockLightPurple: #352c59;
+    --blockDarkPurple: #544597;
+    --blockLightPurple: #c7bded;
     --blockBlue: #0EA5E9;
     --blockGray: #8E9196;
     --blockRed: #ea384c;

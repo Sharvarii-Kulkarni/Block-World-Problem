@@ -13,23 +13,45 @@ const AlgorithmSteps = () => {
   ];
 
   return (
+    // <div className="flex flex-col">
+    //   {steps.map((step, index) => (
+    //     <div key={index} className="step-container">
+    //       <div className="flowchart-box bg-blockLightPurple text-left p-4">
+    //         <div>
+    //           <div className="font-medium text-blockDarkPurple">{step.title}</div>
+    //           <div className="text-sm text-gray-600">{step.description}</div>
+    //         </div>
+    //       </div>
+    //       {index < steps.length - 1 && (
+    //         <div className="flowchart-arrow flex justify-center py-2">
+    //           <ArrowDown size={20} />
+    //         </div>
+    //       )}
+    //     </div>
+    //   ))}
+    // </div>
     <div className="flex flex-col">
-      {steps.map((step, index) => (
-        <div key={index} className="step-container">
-          <div className="flowchart-box bg-blockLightPurple text-left p-4">
-            <div>
-              <div className="font-medium text-blockDarkPurple">{step.title}</div>
-              <div className="text-sm text-gray-600">{step.description}</div>
-            </div>
+  {steps.map((step, index) => (
+    <div key={index} className="step-container">
+      <div className="flowchart-box bg-blockLightPurple dark:bg-gray-800 text-left p-4 rounded-lg">
+        <div>
+          <div className="font-medium text-blockDarkPurple dark:text-blockPurple">
+            {step.title}
           </div>
-          {index < steps.length - 1 && (
-            <div className="flowchart-arrow flex justify-center py-2">
-              <ArrowDown size={20} />
-            </div>
-          )}
+          <div className="text-sm text-gray-600 dark:text-gray-300">
+            {step.description}
+          </div>
         </div>
-      ))}
+      </div>
+      {index < steps.length - 1 && (
+        <div className="flowchart-arrow flex justify-center py-2">
+          <ArrowDown size={20} className="text-gray-500 dark:text-gray-400" />
+        </div>
+      )}
     </div>
+  ))}
+</div>
+
   );
 };
 

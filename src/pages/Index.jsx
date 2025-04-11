@@ -90,10 +90,10 @@ const Index = () => {
                 </h2>
                 <p className="mb-4 text-gray-700 dark:text-gray-300">
                   The Block World problem is a classic AI planning problem where we have a set of blocks
-                  that need to be arranged in a specific order.
+                  that need to be arranged in a specific order. It's a simple yet effective way to understand search and planning algorithms.
                 </p>
                 
-                <div className="bg-gray-50 dark:bg-gray-800 p-5 rounded-lg mb-6">
+                <div className="bg-gray-100 dark:bg-gray-800 p-5 rounded-lg mb-6">
                   <h3 className="font-medium mb-2 dark:text-gray-200">Key Components:</h3>
                   <ul className="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
                     <li>A set of blocks (labeled with letters)</li>
@@ -107,15 +107,62 @@ const Index = () => {
               <div>
                 <Card className="dark:bg-gray-800 dark:border-gray-700">
                   <CardHeader className="pb-2">
-                    <CardTitle className="text-lg dark:text-gray-200">Heuristic Function</CardTitle>
-                    <CardDescription className="dark:text-gray-400">How we evaluate states</CardDescription>
+                    <CardTitle className="text-lg dark:text-gray-100">Heuristic Function</CardTitle>
+                    <CardDescription className="dark:text-gray-200">How we evaluate states</CardDescription>
                   </CardHeader>
                   <CardContent>
                     <p className="text-sm text-gray-700 dark:text-gray-300">
-                      <code className="bg-gray-100 dark:bg-gray-700 p-1 rounded">h(state) = +1</code> for each correctly placed block
+                      <code className="bg-gray-200 dark:bg-gray-900 p-1 rounded">h(state) = +1</code> for each correctly placed block
                     </p>
                   </CardContent>
+                  <div className="flex flex-col items-center">
+                    <div className="flex gap-10 justify-center flex-wrap">
+                      {/* Initial State */}
+                      <div className="flex flex-col items-center">
+                        <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-4 bg-white dark:bg-gray-800">
+                          <div className="flex gap-8">
+                            <div className="flex flex-col-reverse items-center">
+                              <Block letter="A" />
+                              <Block letter="C" />
+                              
+                            </div>
+                            <div className="flex flex-col-reverse items-center">
+                            <Block letter="B" /></div>
+                            <div className="flex flex-col-reverse items-center" />
+                          </div>
+                        </div>
+                        <div className="mt-2 text-sm text-gray-600 dark:text-gray-200">Initial State</div>
+                      </div>
+
+                      {/* Goal State */}
+                      <div className="flex flex-col items-center">
+                        <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-4 bg-white dark:bg-gray-800">
+                          <div className="flex gap-8">
+                            <div className="flex flex-col-reverse items-center">
+                              <Block letter="A" />
+                            </div>
+                            <div className="flex flex-col-reverse items-center">
+                              <Block letter="B" />
+                            </div>
+                            <div className="flex flex-col-reverse items-center">
+                              <Block letter="C" />
+                            </div>
+                          </div>
+                        </div>
+                        <div className="mt-2 text-sm text-gray-600 dark:text-gray-200">Goal State</div>
+                      </div>
+                    </div>
+                    </div>
                 </Card>
+              </div>
+
+              <div className="bg-gray-100 dark:bg-gray-800 p-5 rounded-lg mb-6">
+                <h3 className="font-medium mb-2 dark:text-gray-200">The blocks must follow certain rules:</h3>
+                <ul className="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
+                  <li>Only the top block of any stack can be moved</li>
+                  <li>A block can be moved to the top of another stack or an empty space</li>
+                  <li>The goal is to transform the initial state into the goal state</li>
+                </ul>
               </div>
             </div>
             
@@ -141,12 +188,49 @@ const Index = () => {
                   The Steepest Ascent Hill Climbing algorithm is a local search algorithm that
                   continuously moves toward states with better heuristic values.
                 </p>
+                 {/* Key Characteristics */}
+                <div className="bg-gray-50 dark:bg-gray-800 p-5 rounded-lg mb-6">
+                  <h3 className="font-medium mb-2 dark:text-gray-200">Key Characteristics:</h3>
+                  <ul className="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
+                    <li>Greedy approach - always chooses the best immediate move</li>
+                    <li>Simple to implement and computationally efficient</li>
+                    <li>Can get stuck in local optima</li>
+                    <li>Does not use backtracking or maintain a search tree</li>
+                  </ul>
+                </div>
+
+                {/* When to Use Hill Climbing */}
+                <Card className="mb-6 dark:bg-gray-800 dark:border-gray-700">
+                  <CardHeader className="pb-2">
+                    <CardTitle className="dark:text-gray-200">When to Use Hill Climbing</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
+                      <li>When a good heuristic function is available</li>
+                      <li>When computational resources are limited</li>
+                      <li>When an approximate solution is acceptable</li>
+                      <li>When the search space is relatively smooth</li>
+                    </ul>
+                  </CardContent>
+                </Card>
+
+                {/* Limitations */}
+                <div className="bg-blockLightPurple dark:bg-gray-800 p-5 rounded-lg">
+                  <h3 className="font-medium mb-2 dark:text-gray-200">Limitations:</h3>
+                  <ul className="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
+                    <li>Can get trapped in local maxima/minima</li>
+                    <li>Cannot recover from dead ends without modifications</li>
+                    <li>Performance depends heavily on the initial state</li>
+                    <li>Not guaranteed to find the optimal solution</li>
+                  </ul>
+                </div>
               </div>
               <div>
                 <h3 className="text-lg font-medium mb-4 dark:text-gray-200">Algorithm Steps</h3>
                 <AlgorithmSteps />
               </div>
             </div>
+
             
             <Button 
               onClick={() => setActiveTab("configure")}
