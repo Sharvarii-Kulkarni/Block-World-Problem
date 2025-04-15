@@ -14,17 +14,18 @@ const SolutionPath = ({ history }) => {
       transition={{ duration: 0.5 }}
     >
       <h3 className="text-lg font-medium mb-3">Solution Path</h3>
-      <div className="flex flex-nowrap overflow-x-auto gap-2 pb-4 pt-2">
+      <div className="flex flex-nowrap overflow-x-auto gap-4 pb-4 pt-2">
         {history.map((step, idx) => (
           <React.Fragment key={idx}>
-            <div className="min-w-28 max-w-28">
+            <div className="min-w-[120px] max-w-none pr-2">
+
               <StateDisplay 
                 state={step.state}
-                className="transform scale-75 origin-top-left"
+                className="origin-top-left"
               />
               <div className="text-xs text-center mt-1">Step {idx}</div>
               {step.move && (
-                <div className="text-xs text-center text-gray-500 mt-1 truncate max-w-28 px-1" title={step.move}>
+                <div className="text-xs text-center text-gray-500 mt-1 truncate px-1" title={step.move}>
                   {step.move}
                 </div>
               )}

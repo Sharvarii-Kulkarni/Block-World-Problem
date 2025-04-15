@@ -43,10 +43,10 @@ const PredefinedProblems = ({ onSelectProblem }) => {
     },
     {
       id: "alphabet",
-      name: "Alphabetical Order",
+      name: "3 stack Order",
       description: "Arrange blocks in alphabetical order from bottom to top",
       initialState: [["C", "A"], ["E", "D"], ["B"]],
-      goalState: [["A", "B", "C", "D", "E"], [], []],
+      goalState: [["E"], ["D","B"], ["A","C"]],
       difficulty: 'hard'
     },
     {
@@ -79,7 +79,7 @@ const PredefinedProblems = ({ onSelectProblem }) => {
       <h3 className="text-xl font-medium text-gray-900 dark:text-gray-100">Predefined Problems</h3>
       
       <motion.div 
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
         variants={container}
         initial="hidden"
         animate="show"
@@ -103,7 +103,7 @@ const PredefinedProblems = ({ onSelectProblem }) => {
                 </div>
               </CardHeader>
               <CardContent>
-                <div className="grid grid-cols-2 gap-4 mb-4">
+                <div className="grid grid-cols-2 gap-6 mb-4">
                   <div>
                     <h4 className="text-sm font-medium mb-2">Initial State</h4>
                     <StateDisplay 
